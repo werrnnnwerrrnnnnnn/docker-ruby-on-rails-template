@@ -1,0 +1,31 @@
+# syntax = docker/dockerfile:1
+
+ARG RUBY_VERSION=3.3.4
+FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
+
+# Rails app lives here
+WORKDIR /rails
+
+# Install base packages and development tools
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips nodejs yarn postgresql-client libpq-dev build-essential && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Set development environment
+ENV RAILS_ENV="development" \
+    BUNDLE_PATH="/usr/local/bundle" \
+    BUNDLE_WITHOUT=""
+
+# Install gems
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+# Copy application code
+COPY . .
+
+# Ensure the tmp and log directories are writable
+RUN mkdir -p tmp/pids tmp/cache tmp/sockets log && \
+    chmod -R 777 tmp log
+
+# Expose port 3000 for Rails server
+EXPOSE 3000
