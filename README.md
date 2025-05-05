@@ -4,10 +4,12 @@
 
 ## 📍 Pre-requisites
 
-- [Docker](https://www.docker.com/)
-- [Ruby](https://www.ruby-lang.org/en/)
-- [Rails](https://rubyonrails.org/)
-- [PostgreSQL](https://www.postgresql.org/)
+This project requires the following tools to be installed before setup:
+
+* [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+* [![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white)](https://www.ruby-lang.org/en/)
+* [![Rails](https://img.shields.io/badge/Rails-CC0000?style=for-the-badge&logo=rubyonrails&logoColor=white)](https://rubyonrails.org/)
+* [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
 ---
 
